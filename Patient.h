@@ -6,36 +6,36 @@ class Doctor;   //forward reference
 class Patient
 {
 public:
-    string pname;   
+    string  pname;   
     Doctor* dptr;
 
     Patient(string pname = "n.a.");
     ~Patient();
 
     void setDoctor(Doctor* d);
-    void print();
+    string toString();
 };
 //--------------------Patient.cpp IMPLEMENTATION --------------------
 #include "Doctor.h"
-//#include "Patient.h"
 
 Patient::Patient(string pname) {
     this->pname = pname;
-    std::cout << this << " Patient created" << std::endl;
+    cout << this << " Patient created " << pname << endl;
 }
 
 Patient::~Patient() {
-    std::cout << this << " Patient destroyed" << std::endl;
-    cout << endl;
+    cout << this << " Patient destroyed " << pname << endl;
 }
 
 void Patient::setDoctor(Doctor* d) {
     dptr = d;
 }
 
-void Patient::print() {
-    std::cout << this << " Patient[ ";
-    std::cout << "Name: " << pname;
-    std::cout << ", Doctor: " << dptr->docName << " ]" << std::endl;
-    cout << endl;
+
+string Patient::toString() {
+    stringstream sout;
+    sout << this << " Patient[ ";
+    sout << "Name: " << pname;
+    sout << ", Doctor: " << dptr->docName << " ]" << endl;
+    return sout.str();
 }

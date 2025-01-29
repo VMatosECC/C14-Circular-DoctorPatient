@@ -22,10 +22,17 @@ int main() {
     *d1 += p4;      //same as d1->addPatient(p4);
 
     //Print patients and doctor
-    p1->print();
-    p2->print(); 
-    p3->print();
-    p4->print();
+    cout << "p1 " << p1->toString() << endl;
+    cout << "p2 " << p2->toString() << endl;
+    cout << "p3 " << p3->toString() << endl;
+    cout << "p4 " << p4->toString() << endl;
 
-    d1->print();
+    cout << "d1 " << d1->toString() << endl;
+
+    //Clean up
+    delete p1;
+    delete p2;
+    delete p3;
+    delete p4;
+    delete d1;
 }
